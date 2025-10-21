@@ -10,6 +10,13 @@ type WaitGroup struct {
 	sync.WaitGroup
 }
 
+// Use any implementation of WaitGroup.
+type WaitGroupInterface interface {
+	Add(delta int)
+	Done()
+	Wait()
+}
+
 // WaitWithTimeout returns the value "true" when  the [WaitGroup] counter is zero.
 // And returns the value "false" when the wait is completed by timeout.
 //
